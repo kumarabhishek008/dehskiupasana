@@ -1,0 +1,106 @@
+
+
+
+<!DOCTYPE html>
+{% block content %}
+<html lang="en">
+<head>
+  <title>desh ki upasana</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+  body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+}
+ .navbar{
+@keyframe : transperent;
+}
+</style>
+</head>
+<body>
+<!-- navbar starts here  -->
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <h3><a href="/#" style="hover:red;active:white">देेश की ऊपासना</a></h3>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right" style="font-family:verdana;font-size:17px">
+        <li><a href="/#">होम</a></li>
+        <li><a href="/#crime">क्राईम</a></li>
+        <li><a href="/#sports">स्पोर्टस</a></li>
+        <li><a href="/#film">फिल्म</a></li>
+        <li><a href="/#politics">राजनिती</a></li>
+        <li><a href="/#city">शहर</a></li>
+        <li><a href="/#country">देश   </a></li>
+        <li> </li>
+    </ul>
+    </div>
+</nav>
+<!-- navbar ends here  -->
+<br><br><br>
+<hr>
+<div class="container">
+    <div class="jumbotron">
+        {% for data in detail %}
+        <h2>{{data.title}}</h2><br>
+        <p2><span class="glyphicon glyphicon-time"></span>  {{data.date_time}}</p2><br>
+        <img src={{data.file.url}} style="width:400px;hieght:300px"><br>
+        <p1>{{data.description}}</p1>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- footer starts here  -->
+<div id="contact" class="container-fluid bg-grey" style="background-color:grey">
+  <h2 class="text-center">संपर्क करें</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>हमसे संपर्क करें और हम 24 घंटे के भीतर आपको जवाब देंगे ।</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> जौनपुर , उत्तरप्रदेश</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 9415545107</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> dehskiupasana@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+        <form action="contact" method = 'post'>
+            {% csrf_token %}
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="नाम" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="आपका ईमेल" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="टिप्पणी" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">सदस्यता लें</button>
+        </div>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+
+<footer class="container-fluid text-center">
+  <a href="/" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+
+</footer>
+</body>
+</html>
+{% endblock %}

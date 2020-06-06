@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% block content %}
+<html lang="en">
+<head>
+  <title>desh ki upasana</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+  body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+}
+ .navbar{
+@keyframe : transperent;
+}
+  .navbar {
+    margin-bottom: 0;
+    background-color: red;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+    opacity:80%;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+    .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  #crime .caption {
+  color:gray;
+  opacity:80%;
+  }
+  #home h3 {
+    margin: 0 0 8px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 8px;
+        margin-left: 0px;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <h3><a href="#" style="hover:red;active:white">देेश की ऊपासना</a></h3>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right" style="font-family:verdana;font-size:17px">
+        <li><a href="#">होम</a></li>
+        <li><a href="#">क्राईम</a></li>
+        <li><a href="#sports">स्पोर्टस</a></li>
+        <li><a href="#film">फिल्म</a></li>
+        <li><a href="#politics">राजनिती</a></li>
+        <li><a href="#city">शहर</a></li>
+        <li><a href="#country">देश   </a></li>
+        <li> </li>
+    </ul>
+    </div>
+</nav>
+<br><br><br>
+<div class="container-fluid" id="home">
+
+    {% for news_paper in news_paper %}
+
+    <h3 style="font-family:calibari"><a href={{news_paper.daily_paper.url}} >TODAYS NEWS PAPER</a></h3>
+    {% endfor %}
+    <hr>
+</div>
+<div class="container-fluid responsive" style="background-color:lightgray" id="crime">
+    <h3>क्राईम</h3>
+    <hr>
+    <div class="row">
+
+        {% for feeds in crimefeed %}
+
+        <div class="col-sm-2">
+
+            <a href="detail/{{feeds.id}}"><img src="{{feeds.file.url}}" style="width:235px;height:150.5px"></a>
+            <div class="caption bottom-left">
+                <p1>{{feeds.caption}}</p1><br>
+            </div>
+                <p1>{{feeds.title}}</p1><br>
+            <p1><span class="glyphicon glyphicon-time"></span> {{feeds.date_time}}</p1><br><br>
+
+        </div>
+         {% endfor %}
+
+    </div>
+    <h4 class="text-right"><a href="readmore/crime">Read more</a></h4>
+<hr>
+</div>
+<div class="container-fluid responsive" style="background-color:lightgray" id="sports">
+    <h3>स्पोर्टस</h3>
+    <hr>
+        <div class="row">
+
+                {% for feeds in sportsfeed %}
+                <div class="col-sm-3">
+
+                    <a href="detail/{{feeds.id}}"><img src="{{feeds.file.url}}" style="width:235px;height:150.5px"></a>
+                    <div class="caption bottom-left">
+                        <p1>{{feeds.caption}}</p1><br>
+                    </div>
+                        <p1>{{feeds.title}}</p1><br>
+                    <p1><span class="glyphicon glyphicon-time"></span> {{feeds.date_time}}</p1><br><br>
+
+                </div>
+                 {% endfor %}
+
+    </div>
+    <h4 class="text-right"><a href="readmore/sports">Read more</a></h4>
+<hr>
+</div>
+<div class="container-fluid responsive" style="background-color:lightgray" id="film">
+    <h3>िल्म</h3>
+    <hr>
+        <div class="row">
+        {% for feeds in filmfeed %}
+        <div class="col-sm-3">
+
+            <a href="detail/{{feeds.id}}"><img src="{{feeds.file.url}}" style="width:235px;height:150.5px"></a>
+            <div class="caption bottom-left">
+                <p1>{{feeds.caption}}</p1><br>
+            </div>
+                <p1>{{feeds.title}}</p1><br>
+            <p1><span class="glyphicon glyphicon-time"></span> {{feeds.date_time}}</p1><br><br>
+
+        </div>
+         {% endfor %}
+
+    </div>
+    <h4 class="text-right"><a href="readmore/film">Read more</a></h4>
+<hr>
+</div>
+<div class="container-fluid responsive" style="background-color:lightgray" id="politics">
+    <h3>राजनिती</h3>
+    <hr>
+        <div class="row">
+        {% for feeds in politicsfeed %}
+        <div class="col-sm-3">
+
+            <a href="detail/{{feeds.id}}"><img src="{{feeds.file.url}}" style="width:235px;height:150.5px"></a>
+            <div class="caption bottom-left">
+                <p1>{{feeds.caption}}</p1><br>
+            </div>
+                <p1>{{feeds.title}}</p1><br>
+            <p1><span class="glyphicon glyphicon-time"></span> {{feeds.date_time}}</p1><br><br>
+
+        </div>
+         {% endfor %}
+
+    </div>
+    <h4 class="text-right"><a href="readmore/politics">Read more</a></h4>
+<hr>
+</div>
+<div class="container-fluid responsive" style="background-color:lightgray" id="city">
+    <h3>शहर</h3>
+    <hr>
+        <div class="row">
+        {% for feeds in cityfeed %}
+        <div class="col-sm-3">
+
+            <a href="detail/{{feeds.id}}"><img src="{{feeds.file.url}}" style="width:235px;height:150.5px"></a>
+            <div class="caption bottom-left">
+                <p1>{{feeds.caption}}</p1><br>
+            </div>
+                <p1>{{feeds.title}}</p1><br>
+            <p1><span class="glyphicon glyphicon-time"></span> {{feeds.date_time}}</p1><br><br>
+
+        </div>
+         {% endfor %}
+
+    </div>
+    <h4 class="text-right"><a href="readmore/city">Read more</a></h4>
+    <hr>
+</div>
+<div class="container-fluid responsive" style="background-color:lightgray" id="country">
+    <h3>देश </h3>
+    <hr>
+        <div class="row">
+        {% for feeds in countryfeed %}
+        <div class="col-sm-3">
+
+            <a href="detail/{{feeds.id}}"><img src="{{feeds.file.url}}" style="width:235px;height:150.5px"></a>
+            <div class="caption bottom-left">
+                <p1>{{feeds.caption}}</p1><br>
+            </div>
+                <p1>{{feeds.title}}</p1><br>
+            <p1><span class="glyphicon glyphicon-time"></span> {{feeds.date_time}}</p1><br><br>
+
+        </div>
+         {% endfor %}
+
+    </div>
+    <h4 class="text-right"><a href="readmore/country">Read more</a></h4>
+    <hr>
+</div>
+  <!--================ Start Footer Area =================-->
+<div id="contact" class="container-fluid bg-grey" style="background-color:grey">
+  <h2 class="text-center">संपर्क करें</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>हमसे संपर्क करें और हम 24 घंटे के भीतर आपको जवाब देंगे ।</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> जौनपुर , उत्तरप्रदेश</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 9415545107</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> dehskiupasana@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+        <form action="contact" method = 'post'>
+            {% csrf_token %}
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="नाम" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="आपका ईमेल" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="टिप्पणी" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">सदस्यता लें</button>
+        </div>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+
+<footer class="container-fluid text-center">
+  <a href="/" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+
+</footer>
+  <!--================ End Footer Area =================-->
+</body>
+</html>
+{% endblock %}

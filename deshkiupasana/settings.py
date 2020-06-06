@@ -115,12 +115,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 ################################
 STATICFILES_DIRS = ([
-    os.path.join(os.path.dirname(BASE_DIR), 'MakeCalls', 'Static'),
+    os.path.join(os.path.dirname(BASE_DIR), 'Static'),
 ])
 
 STATIC_URL = '/Static/'
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'MakeCalls', 'MakeCalls', 'assets')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

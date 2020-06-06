@@ -20,7 +20,7 @@ SECRET_KEY = secret
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['deshkiupasana.herokuapp.com']
+ALLOWED_HOSTS = ['deshkiupasana.herokuapp.com','127.0.0.1']
 
 
 # Application definition
